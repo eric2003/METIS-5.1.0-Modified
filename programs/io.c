@@ -426,7 +426,7 @@ void WritePartition(char *fname, idx_t *part, idx_t n, idx_t nparts)
 {
   FILE *fpout;
   idx_t i;
-  char filename[MAXLINE];
+  char filename[256];
 
   sprintf(filename, "%s.part.%"PRIDX, fname, nparts);
 
@@ -478,7 +478,7 @@ void WritePermutation(char *fname, idx_t *iperm, idx_t n)
 {
   FILE *fpout;
   idx_t i;
-  char filename[MAXLINE];
+  char filename[256];
 
   sprintf(filename, "%s.iperm", fname);
 
