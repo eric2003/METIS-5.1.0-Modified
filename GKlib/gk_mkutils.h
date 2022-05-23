@@ -9,13 +9,13 @@
 
 #ifndef _GK_MKUTILS_H_
 #define _GK_MKUTILS_H_
-
+#include "metis_def.h"
 
 #define GK_MKARRAY2CSR(PRFX, TYPE)\
 /*************************************************************************/\
 /*! The macro for gk_?array2csr() routine */\
 /**************************************************************************/\
-void PRFX ## array2csr(TYPE n, TYPE range, TYPE *array, TYPE *ptr, TYPE *ind)\
+METIS_API(void) PRFX ## array2csr(TYPE n, TYPE range, TYPE *array, TYPE *ptr, TYPE *ind)\
 {\
   TYPE i;\
 \
@@ -34,7 +34,7 @@ void PRFX ## array2csr(TYPE n, TYPE range, TYPE *array, TYPE *ptr, TYPE *ind)\
 
 
 #define GK_MKARRAY2CSR_PROTO(PRFX, TYPE)\
-  void PRFX ## array2csr(TYPE n, TYPE range, TYPE *array, TYPE *ptr, TYPE *ind);\
+  METIS_API(void) PRFX ## array2csr(TYPE n, TYPE range, TYPE *array, TYPE *ptr, TYPE *ind);\
 
 
 #endif

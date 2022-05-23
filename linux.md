@@ -1,0 +1,1 @@
+cmake --install . --prefix "/usr/local/METIS/"

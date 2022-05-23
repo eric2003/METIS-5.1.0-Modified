@@ -9,13 +9,13 @@
 
 #ifndef _GK_GETOPT_H_
 #define _GK_GETOPT_H_
-
+#include "metis_def.h"
 
 /* Externals from getopt.c */
-extern char *gk_optarg;
-extern int gk_optind;
-extern int gk_opterr;
-extern int gk_optopt;
+extern METIS_API(char) *gk_optarg;
+extern METIS_API(int) gk_optind;
+extern METIS_API(int) gk_opterr;
+extern METIS_API(int) gk_optopt;
 
 
 /*! \brief The structure that stores the information about the command-line options 
@@ -52,16 +52,10 @@ struct gk_option {
 
 
 /* Function prototypes */
-//extern int gk_getopt(int __argc, char **__argv, char *__shortopts);
-//extern int gk_getopt_long(int __argc, char **__argv, char *__shortopts,
-//              struct gk_option *__longopts, int *__longind);
-//extern int gk_getopt_long_only (int __argc, char **__argv,
-//              char *__shortopts, struct gk_option *__longopts, int *__longind);
-
-extern int gk_getopt(int argc, char **argv, char *options);
-extern int gk_getopt_long( int argc, char **argv, char *options, 
+extern METIS_API(int) gk_getopt(int argc, char **argv, char *options);
+extern METIS_API(int) gk_getopt_long( int argc, char **argv, char *options,
        struct gk_option *long_options, int *opt_index);
-extern int gk_getopt_long_only(int argc, char **argv, char *options, 
+extern METIS_API(int) gk_getopt_long_only(int argc, char **argv, char *options,
        struct gk_option *long_options, int *opt_index);
 
 

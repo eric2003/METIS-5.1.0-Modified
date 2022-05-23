@@ -4,6 +4,14 @@ include_directories(.)
 file(GLOB metis_sources *.c)
 # Build libmetis.
 add_library(metis ${METIS_LIBRARY_TYPE} ${GKlib_sources} ${metis_sources})
+
+if( SHARED )
+target_compile_definitions( metis
+    PRIVATE
+        BUILD_DLL
+)
+endif()
+
 if(UNIX)
   target_link_libraries(metis m)
 endif()

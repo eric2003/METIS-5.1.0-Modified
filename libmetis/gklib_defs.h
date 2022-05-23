@@ -9,7 +9,7 @@
 
 #ifndef _LIBMETIS_GKLIB_H_
 #define _LIBMETIS_GKLIB_H_
-
+#include "metis_def.h"
 #include "gklib_rename.h"
 
 /*************************************************************************/
@@ -39,15 +39,15 @@ GK_MKPQUEUE_PROTO(ipq, ipq_t, idx_t, idx_t)
 GK_MKPQUEUE_PROTO(rpq, rpq_t, real_t, idx_t)
 GK_MKRANDOM_PROTO(i, idx_t, idx_t)
 GK_MKARRAY2CSR_PROTO(i, idx_t)
-void isorti(size_t n, idx_t *base);
-void isortd(size_t n, idx_t *base);
-void rsorti(size_t n, real_t *base);
-void rsortd(size_t n, real_t *base);
-void ikvsorti(size_t n, ikv_t *base);
-void ikvsortii(size_t n, ikv_t *base);
-void ikvsortd(size_t n, ikv_t *base);
-void rkvsorti(size_t n, rkv_t *base);
-void rkvsortd(size_t n, rkv_t *base);
-void uvwsorti(size_t n, uvw_t *base);
+METIS_API(void) isorti(size_t n, idx_t *base);
+METIS_API(void) isortd(size_t n, idx_t *base);
+METIS_API(void) rsorti(size_t n, real_t *base);
+METIS_API(void) rsortd(size_t n, real_t *base);
+METIS_API(void) ikvsorti(size_t n, ikv_t *base);
+METIS_API(void) ikvsortii(size_t n, ikv_t *base);
+METIS_API(void) ikvsortd(size_t n, ikv_t *base);
+METIS_API(void) rkvsorti(size_t n, rkv_t *base);
+METIS_API(void) rkvsortd(size_t n, rkv_t *base);
+METIS_API(void) uvwsorti(size_t n, uvw_t *base);
 
 #endif

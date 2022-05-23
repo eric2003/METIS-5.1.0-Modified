@@ -10,6 +10,8 @@
 #ifndef _METIS_H_
 #define _METIS_H_ 
 
+#include "metis_def.h"
+
 /****************************************************************************
 * A set of defines that can be modified by the user
 *****************************************************************************/
@@ -175,13 +177,13 @@ typedef __int64 int64_t;
 * Function prototypes 
 *-------------------------------------------------------------------------*/
 
-#ifdef _WINDLL
-#define METIS_API(type) __declspec(dllexport) type __cdecl
-#elif defined(__cdecl)
-#define METIS_API(type) type __cdecl
-#else
-#define METIS_API(type) type
-#endif
+//#ifdef _WINDLL
+//#define METIS_API(type) __declspec(dllexport) type __cdecl
+//#elif defined(__cdecl)
+//#define METIS_API(type) type __cdecl
+//#else
+//#define METIS_API(type) type
+//#endif
 
 
 

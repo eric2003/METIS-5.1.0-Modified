@@ -10,6 +10,7 @@
 
 #ifndef _GK_MKRANDOM_H
 #define _GK_MKRANDOM_H
+#include "metis_def.h"
 
 /*************************************************************************/\
 /*! The generator for the rand() related routines.  \
@@ -24,7 +25,7 @@
 /*************************************************************************/\
 /*! Initializes the generator */ \
 /**************************************************************************/\
-void FPRFX ## srand(RNGT seed) \
+METIS_API(void) FPRFX ## srand(RNGT seed) \
 {\
   gk_randinit((uint64_t) seed);\
 }\
@@ -33,7 +34,7 @@ void FPRFX ## srand(RNGT seed) \
 /*************************************************************************/\
 /*! Returns a random number */ \
 /**************************************************************************/\
-RNGT FPRFX ## rand() \
+METIS_API(RNGT) FPRFX ## rand() \
 {\
   if (sizeof(RNGT) <= sizeof(int32_t)) \
     return (RNGT)gk_randint32(); \
@@ -45,7 +46,7 @@ RNGT FPRFX ## rand() \
 /*************************************************************************/\
 /*! Returns a random number between [0, max) */ \
 /**************************************************************************/\
-RNGT FPRFX ## randInRange(RNGT max) \
+METIS_API(RNGT) FPRFX ## randInRange(RNGT max) \
 {\
   return (RNGT)((FPRFX ## rand())%max); \
 }\
@@ -56,7 +57,7 @@ RNGT FPRFX ## randInRange(RNGT max) \
     flag == 1, p[i] = i prior to permutation, \
     flag == 0, p[] is not initialized. */\
 /**************************************************************************/\
-void FPRFX ## randArrayPermute(RNGT n, VALT *p, RNGT nshuffles, int flag)\
+METIS_API(void) FPRFX ## randArrayPermute(RNGT n, VALT *p, RNGT nshuffles, int flag)\
 {\
   RNGT i, u, v;\
   VALT tmp;\
@@ -95,7 +96,7 @@ void FPRFX ## randArrayPermute(RNGT n, VALT *p, RNGT nshuffles, int flag)\
     flag == 1, p[i] = i prior to permutation, \
     flag == 0, p[] is not initialized. */\
 /**************************************************************************/\
-void FPRFX ## randArrayPermuteFine(RNGT n, VALT *p, int flag)\
+METIS_API(void) FPRFX ## randArrayPermuteFine(RNGT n, VALT *p, int flag)\
 {\
   RNGT i, v;\
   VALT tmp;\
@@ -113,11 +114,11 @@ void FPRFX ## randArrayPermuteFine(RNGT n, VALT *p, int flag)\
 
 
 #define GK_MKRANDOM_PROTO(FPRFX, RNGT, VALT)\
-  void FPRFX ## srand(RNGT seed); \
-  RNGT FPRFX ## rand(); \
-  RNGT FPRFX ## randInRange(RNGT max); \
-  void FPRFX ## randArrayPermute(RNGT n, VALT *p, RNGT nshuffles, int flag);\
-  void FPRFX ## randArrayPermuteFine(RNGT n, VALT *p, int flag);\
+  METIS_API(void) FPRFX ## srand(RNGT seed); \
+  METIS_API(RNGT) FPRFX ## rand(); \
+  METIS_API(RNGT) FPRFX ## randInRange(RNGT max); \
+  METIS_API(void) FPRFX ## randArrayPermute(RNGT n, VALT *p, RNGT nshuffles, int flag);\
+  METIS_API(void) FPRFX ## randArrayPermuteFine(RNGT n, VALT *p, int flag);\
 
 
 #endif
