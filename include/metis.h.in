@@ -13,9 +13,9 @@
 //#include "metis_def.h"
 #ifndef METIS_DLL
 # ifdef _WIN32
-#  if defined( BUILD_DLL )
+#  if defined( BUILD_METIS_DLL )
 #    define METIS_DLL __declspec(dllexport)
-#  elif defined( USE_DLL )
+#  elif defined( USE_METIS_DLL )
 #    define METIS_DLL __declspec(dllimport)
 #  else
 #    define METIS_DLL

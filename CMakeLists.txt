@@ -1,32 +1,32 @@
-cmake_minimum_required(VERSION 2.8)
-project(METIS)
+cmake_minimum_required( VERSION 3.20 )
+project ( METIS )
 
-#set(GKLIB_PATH "GKlib" CACHE PATH "path to GKlib")
-set(GKLIB_PATH "GKlib")
-set(SHARED FALSE CACHE BOOL "build a shared library")
+#set ( GKLIB_PATH "GKlib" CACHE PATH "path to GKlib")
+set ( GKLIB_PATH "GKlib" )
+set ( SHARED FALSE CACHE BOOL "build a shared library" )
 
-set(METIS_INSTALL TRUE)
+set ( METIS_INSTALL TRUE )
 
-option(METIS_ENABLE_64BIT "Enable or disable 64-bit code building" "ON")
+option ( METIS_ENABLE_64BIT "Enable or disable 64-bit code building" "ON" )
 
-if (METIS_ENABLE_64BIT)
-    set(BUILD64BIT 1)
+if ( METIS_ENABLE_64BIT )
+    set( BUILD64BIT 1 )
 else()
-    set(BUILD64BIT 0)
+    set( BUILD64BIT 0 )
 endif()
 
 # Configure libmetis library.
-if(SHARED)
-  set(METIS_LIBRARY_TYPE SHARED)
+if ( SHARED )
+    set ( METIS_LIBRARY_TYPE SHARED )
 else()
-  set(METIS_LIBRARY_TYPE STATIC)
-endif(SHARED)
+    set ( METIS_LIBRARY_TYPE STATIC )
+endif()
 
-include(${GKLIB_PATH}/GKlibSystem.cmake)
+include( ${GKLIB_PATH}/GKlibSystem.cmake )
 # Add include directories.
-include_directories(${GKLIB_PATH})
-include_directories(include)
+include_directories( ${GKLIB_PATH} )
+include_directories( include )
 # Recursively look for CMakeLists.txt in subdirs.
-add_subdirectory("include")
-add_subdirectory("libmetis")
-add_subdirectory("programs")
+add_subdirectory ( "include"  )
+add_subdirectory ( "libmetis" )
+add_subdirectory ( "programs" )
