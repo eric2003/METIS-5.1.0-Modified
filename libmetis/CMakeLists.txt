@@ -18,7 +18,8 @@ endif()
 
 if(METIS_INSTALL)
   install(TARGETS metis
+    RUNTIME DESTINATION bin 
     LIBRARY DESTINATION lib
-    RUNTIME DESTINATION lib
-    ARCHIVE DESTINATION lib)
+    ARCHIVE DESTINATION lib  
+  )
 endif()
